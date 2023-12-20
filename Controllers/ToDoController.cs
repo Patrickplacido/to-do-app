@@ -27,4 +27,42 @@ public class ToDoController : ControllerBase
 
     return ToDo;
   }
+
+  [HttpPost]
+  public IActionResult Create(ToDoItem toDoItem)
+  {
+    ToDoService.Add(toDoItem);
+    return CreatedAtAction(nameof(Get), new { id = toDoItem.Id }, toDoItem);
+  }
+
+  [HttpPut("{id}")]
+  public IActionResult Update(int id, ToDoItem toDoItem)
+  {
+    if (id != toDoItem.Id)
+      return BadRequest();
+
+    var existingItem = ToDoService.Get(id);
+
+    if (existingItem is null)
+      return NotFound();
+
+    ToDoService.Update(toDoItem);
+
+    return NoContent();
+  }
+
+  [HttpDelete("{id}")]
+  public IActionResult Delete(int id)
+  {
+    var toDoItem = ToDoService.Get(id);
+
+    if (toDoItem is null)
+      return NotFound();
+
+    ToDoService.Delete(id);
+
+    return NoContent();
+  }
+
+
 }
