@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\treinamento .NET Core.props" />
+</Project>
