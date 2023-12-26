@@ -38,15 +38,12 @@ public class ToDoController : ControllerBase
   [HttpPut("{id}")]
   public IActionResult Update(int id, ToDoItem toDoItem)
   {
-    if (id != toDoItem.Id)
-      return BadRequest();
-
     var existingItem = ToDoService.Get(id);
 
     if (existingItem is null)
       return NotFound();
 
-    ToDoService.Update(toDoItem);
+    ToDoService.Update(id, toDoItem);
 
     return NoContent();
   }

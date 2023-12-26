@@ -5,7 +5,7 @@ namespace ToDo.Services;
 
 public static class ToDoService
 {
-  static List<ToDoItem> ToDoItems { get; }
+  private static List<ToDoItem> ToDoItems { get; }
 
   static ToDoService()
   {
@@ -15,20 +15,23 @@ public static class ToDoService
 
   }
   public static List<ToDoItem> GetAll() => ToDoItems;
-  public static ToDoItem? Get(int id) => ToDoItems.FirstOrDefault(t => t.Id == id);
+  public static ToDoItem? Get(int id) => ToDoItems.Find(t => t.Id == id);
   public static void Add(ToDoItem toDoItem)
   {
     var nextId = ToDoItems.Count;
     toDoItem.Id = nextId+2;
     ToDoItems.Add(toDoItem);
   }
-  public static void Update(ToDoItem toDoItem)
+  public static void Update(int id, [FromBody] ToDoItem toDoItem)
   {
-    var index = ToDoItems.FindIndex(t => toDoItem.Id == t.Id);
-    if (index == -1)
-      return;
-
-    ToDoItems[index] = toDoItem;
+    var existingItem = ToDoItems.Find(t => id == t.Id);
+    if (existingItem is not null)
+    {
+      existingItem.Id = id;
+      existingItem.DueDate = toDoItem.DueDate ?? existingItem.DueDate;
+      existingItem.Project = toDoItem.Project ?? existingItem.Project;
+      existingItem.Task = toDoItem.Task ?? existingItem.Task;
+    }
   }
   public static void Delete(int id)
   {
