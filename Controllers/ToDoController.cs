@@ -9,18 +9,21 @@ namespace ToDo.Controllers;
 
 public class ToDoController : ControllerBase
 {
-  public ToDoController()
+  public ToDoService _toDoService;
+
+  public ToDoController(ToDoService toDoService)
   {
+    _toDoService = toDoService ?? throw new ArgumentNullException(nameof(toDoService));
   }
 
   [HttpGet]
   public ActionResult<List<ToDoItem>> GetAll() =>
-    ToDoService.GetAll();
+    _toDoService.GetAll();
 
   [HttpGet("{id}")]
   public ActionResult<ToDoItem> Get(int id)
   {
-    var ToDo = ToDoService.Get(id);
+    var ToDo = _toDoService.Get(id);
 
     if (ToDo == null)
       return NotFound();
@@ -31,19 +34,19 @@ public class ToDoController : ControllerBase
   [HttpPost]
   public IActionResult Create(ToDoItem toDoItem)
   {
-    ToDoService.Add(toDoItem);
+    _toDoService.Add(toDoItem);
     return CreatedAtAction(nameof(Get), new { id = toDoItem.Id }, toDoItem);
   }
 
   [HttpPut("{id}")]
   public IActionResult Update(int id, ToDoItem toDoItem)
   {
-    var existingItem = ToDoService.Get(id);
+    var existingItem = _toDoService.Get(id);
 
     if (existingItem is null)
       return NotFound();
 
-    ToDoService.Update(id, toDoItem);
+    _toDoService.Update(id, toDoItem);
 
     return NoContent();
   }
@@ -51,12 +54,12 @@ public class ToDoController : ControllerBase
   [HttpDelete("{id}")]
   public IActionResult Delete(int id)
   {
-    var toDoItem = ToDoService.Get(id);
+    var toDoItem = _toDoService.Get(id);
 
     if (toDoItem is null)
       return NotFound();
 
-    ToDoService.Delete(id);
+    _toDoService.Delete(id);
 
     return NoContent();
   }

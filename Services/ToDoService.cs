@@ -1,44 +1,49 @@
-using ToDo.Models;
 using Microsoft.AspNetCore.Mvc;
+using ToDo.Data;
+using ToDo.Models;
 
-namespace ToDo.Services;
-
-public static class ToDoService
+namespace ToDo.Services
 {
-  private static List<ToDoItem> ToDoItems { get; }
+  public class ToDoService
+  {
+    private readonly ToDoDbContext _context;
 
-  static ToDoService()
-  {
-    ToDoItems = new List<ToDoItem>{
-      new ToDoItem {Id = 1, DueDate = DateTime.Now, Task = "Testando todo list"}
-    };
-
-  }
-  public static List<ToDoItem> GetAll() => ToDoItems;
-  public static ToDoItem? Get(int id) => ToDoItems.Find(t => t.Id == id);
-  public static void Add(ToDoItem toDoItem)
-  {
-    var nextId = ToDoItems.Count;
-    toDoItem.Id = nextId+2;
-    ToDoItems.Add(toDoItem);
-  }
-  public static void Update(int id, [FromBody] ToDoItem toDoItem)
-  {
-    var existingItem = ToDoItems.Find(t => id == t.Id);
-    if (existingItem is not null)
+    public ToDoService(ToDoDbContext dbContext)
     {
-      existingItem.Id = id;
-      existingItem.DueDate = toDoItem.DueDate ?? existingItem.DueDate;
-      existingItem.Project = toDoItem.Project ?? existingItem.Project;
-      existingItem.Task = toDoItem.Task ?? existingItem.Task;
+      _context = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
-  }
-  public static void Delete(int id)
-  {
-    var toDoItem = Get(id);
-    if (toDoItem is null)
-      return;
 
-    ToDoItems.Remove(toDoItem);
+    public List<ToDoItem> GetAll() => _context.ToDoItems.ToList();
+
+    public ToDoItem Get(int id) => _context.ToDoItems.Find(id);
+
+    public void Add(ToDoItem toDoItem)
+    {
+      _context.ToDoItems.Add(toDoItem);
+      _context.SaveChanges();
+    }
+
+    public void Update(int id, [FromBody] ToDoItem toDoItem)
+    {
+      var existingItem = _context.ToDoItems.Find(id);
+      if (existingItem is not null)
+      {
+        existingItem.Id = id;
+        existingItem.DueDate = toDoItem.DueDate ?? existingItem.DueDate;
+        existingItem.Project = toDoItem.Project ?? existingItem.Project;
+        existingItem.Task = toDoItem.Task ?? existingItem.Task;
+        _context.SaveChanges();
+      }
+    }
+
+    public void Delete(int id)
+    {
+      var toDoItem = _context.ToDoItems.Find(id);
+      if (toDoItem is not null)
+      {
+        _context.ToDoItems.Remove(toDoItem);
+        _context.SaveChanges();
+      }
+    }
   }
 }
