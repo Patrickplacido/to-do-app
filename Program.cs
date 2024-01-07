@@ -1,11 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using ToDo.Data;
+using ToDo.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ToDoDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDbContext<ProjectDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Register ToDoService outside the scope
+builder.Services.AddScoped<ToDoService>();
+builder.Services.AddScoped<ProjectService>();
 
 var app = builder.Build();
 
@@ -21,5 +33,18 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
+    dbContext.Database.Migrate();
+
+    var projectDbContext = scope.ServiceProvider.GetRequiredService<ProjectDbContext>();
+    projectDbContext.Database.Migrate();
+
+    var toDoService = scope.ServiceProvider.GetRequiredService<ToDoService>();
+
+    var projectService = scope.ServiceProvider.GetRequiredService<ProjectService>();
+}
 
 app.Run();
