@@ -8,6 +8,8 @@ public class ToDoItem
 {
   public int Id { get; set; }
   public DateTime? DueDate { get; set; }
+  public int? ProjectId { get; set; }
   public Project? Project { get; set; }
   public string Task { get; set; }
+  public bool Completed { get; set; }
 }
