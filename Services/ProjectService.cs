@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ToDo.Data;
 using ToDo.Models;
 
@@ -6,9 +9,9 @@ namespace ToDo.Services
 {
     public class ProjectService
     {
-        private readonly ProjectDbContext _context;
+        private readonly ToDoDbContext _context;
 
-        public ProjectService(ProjectDbContext dbContext)
+        public ProjectService(ToDoDbContext dbContext)
         {
             _context = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
@@ -30,7 +33,7 @@ namespace ToDo.Services
             {
                 existingProject.Id = id;
                 existingProject.Description = project.Description ?? existingProject.Description;
-                existingProject.Name = project.Name ?? project.Name;
+                existingProject.Name = project.Name ?? existingProject.Name;
                 _context.SaveChanges();
             }
         }
