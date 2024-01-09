@@ -1,32 +1,11 @@
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\appsettings.json
 C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\treinamento .NET Core.exe
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\treinamento .NET Core.deps.json
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\treinamento .NET Core.runtimeconfig.json
 C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\treinamento .NET Core.dll
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\treinamento .NET Core.pdb
+C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Npgsql.dll
+C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\patrick.fontana\Desktop\treinamento .NET Core\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.csproj.AssemblyReference.cache
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.AssemblyInfoInputs.cache
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.AssemblyInfo.cs
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.csproj.CoreCompileInputs.cache
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets\msbuild.treinamento .NET Core.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets\msbuild.build.treinamento .NET Core.props
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.treinamento .NET Core.props
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.treinamento .NET Core.props
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\scopedcss\bundle\treinamento .NET Core.styles.css
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.csproj.CopyComplete
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.dll
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\refint\treinamento .NET Core.dll
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.pdb
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\treinamento .NET Core.genruntimeconfig.cache
-C:\Users\patrick.fontana\Desktop\treinamento .NET Core\obj\Debug\net6.0\ref\treinamento .NET Core.dll
